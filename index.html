@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<title>jQuery Autocomplete Plugin</title>
+		<script type="text/javascript" src="./jquery-1.4.2.min.js"></script>
+		<script type='text/javascript' src='./jquery.autocomplete.js'></script>
+		<link rel="stylesheet" type="text/css" href="./jquery.autocomplete.css" />
+		<script>
+			
+			var names = [
+				{qpName : "zhangsan", jpName : "zs", name : "张三"},
+				{qpName : "lisi", jpName : "ls", name : "李四"},
+				{qpName : "wangwu", jpName : "ww", name : "王五"},
+				{qpName : "maliu", jpName : "ml", name : "马六"},
+				{qpName : "liuqi", jpName : "lq", name : "刘七"},
+				{qpName : "linba", jpName : "lb", name : "林八"},
+				{qpName : "fujiu", jpName : "fj", name : "傅九"},
+				{qpName : "dengling", jpName : "dl", name : "邓零"},
+				{qpName : "zhaoyi", jpName : "zy", name : "赵一"},
+				{qpName : "huanger", jpName : "he", name : "黄二"}
+			];
+
+			$(function(){
+						//显示、值、匹配测试
+						$("#staff").autocomplete(names, {
+							width:300,
+							matchContains:true,
+							scroll:true,
+							scrollHeight:100,
+							formatItem:function(row, i, max){
+							return row.name;
+							},
+							formatResult:function(row, i, max){
+								return row.name;
+							},
+							formatMatch:function(row, i, max){
+								return row.qpName + row.jpName + row.name;
+							}
+							});
+				});
+		</script>
+	</head>
+	<body>
+				 names: <input type="text" id="staff" style="width:300px;" /><br/>
+	</body>
+</html>
